@@ -5,8 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "personajesSW")
 public class Personaje {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Id private Integer id;
     private String name;
     private String height;
     private String mass;
@@ -20,8 +19,12 @@ public class Personaje {
     public Personaje() {
     }
 
+    public void corregirID(){
+        this.id = Integer.valueOf(url.substring(28, url.length()-1));
+    }
+
     public Integer getId() {
-        return Integer.valueOf(url.substring(28, url.length()-1));
+        return id;
     }
 
     public void setId(Integer id) {
